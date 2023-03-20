@@ -14,15 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
+        
         primarySwatch: Colors.blue,
       ),
       home: const LoginScreen(),
@@ -35,26 +27,138 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-       // color: Colors.red,
-        child: Column(
-          mainAxisSize: MainAxisSize.max, //refers to the height
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [ 
-            TheButton(theText: 'Login to Google',),
-            const SizedBox(height:20),
-            TheButton(theText: 'Login to Twitter',),
-          ],
-        ),
-      ),  
+      body: (
+        Container(
+          width: MediaQuery.of(context).size.width, 
+          color: Colors.grey, // this is the color of the background not the card itself
+          child:(
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center, // this makes the card be in the center
+              children: [
+                Container(
+                 // padding: const EdgeInsets.symmetric(horizontal:80),
+                  width: 700, //width of the card
+                  height: 480, // height of the card! 
+                  child: (
+                    Card  (
+                      elevation: 50,
+                      shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50.0), // card borders    
+                      ),
+                      color: Colors.white,
+                      child: (
+                         Column(
+                            //mainAxisAlignment: MainAxisAlignment.start,
+                            //crossAxisAlignment: CrossAxisAlignment.start,
+                            children:[
+                              Row(
+                                children:  [
+                                  const SizedBox(height:20),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal:40,vertical: 40),
+                                    
+                                    child: const CircleAvatar (
+                                      radius: 55,
+                                      backgroundColor: Colors.white,
+                                      foregroundImage: AssetImage(
+                                      "assets/mypic.png",
+                                      ),
+                                    ),
+                                  ),
+                                  Column(
+                                    
+                                    children: const [
+                                      Text("Posts", 
+                                          style: TextStyle(fontSize:20,color: Color.fromARGB(255, 23, 47, 125)),
+                                        ),
+                                      SizedBox(height:10),
+                                      Text("23", 
+                                        style: TextStyle(fontSize:20, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 23, 47, 125)),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(width: 100,),
+                                  Column(
+                                    children: const [
+                                      Text("Followers", 
+                                          style: TextStyle(fontSize:20,color: Color.fromARGB(255, 23, 47, 125)),
+                                        ),
+                                      SizedBox(height:10),
+                                      Text("326", 
+                                        style: TextStyle(fontSize:20, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 23, 47, 125)),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(width: 90,),
+                                  Column(
+                                    children: const [
+                                      Text("Following", 
+                                          style: TextStyle(fontSize:20, color: Color.fromARGB(255, 23, 47, 125)),
+                                        ),
+                                      SizedBox(height:10),
+                                      Text("120", 
+                                        style: TextStyle(fontSize:20, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 23, 47, 125)),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children:  [
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal:40,vertical: 5),
+                                    child: const Text("Harlyn Nichole Qiu",
+                                    style:TextStyle(fontSize:20, fontWeight: FontWeight.bold,color: Color.fromARGB(255, 23, 47, 125))),
+                                  ),  
+                                ],
+                              ),
+                              Row(
+                                children:  [
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal:40,vertical: 5),
+                                    child:
+                                      const Text("UI/ UX Designer",
+                                      style:TextStyle(fontSize:18, color: Color.fromARGB(255, 23, 47, 125))),
+                                  ),
+                                ],
+                              ),  
+                              const SizedBox(height:20),
+                              Row(
+                                children:  [
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal:40,vertical: 5),
+                                    child:
+                                      const Text("About",
+                                      style:TextStyle(fontSize:20, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 23, 47, 125))),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children:  [
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal:40,vertical: 5),
+                                    child:
+                                      const Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ornare\npretium placerat ut platea. Purus blandit integer sagittis massa\nvel est hac.",
+                                      textAlign: TextAlign.justify,
+                                      maxLines: 3,
+                                      style:TextStyle(fontSize:20, height:1.5, color: Color.fromARGB(255, 23, 47, 125))),
+                                  ),
+                                ],
+                              ),
+
+                            ],
+                          )
+                        ),
+                      )
+                    ),
+                  ),
+              ],        
+            )
+          ), 
+        ) 
+      ), 
     );
-
-
-    
   }
-
 }
 
 class TheButton extends StatelessWidget {
@@ -81,4 +185,18 @@ class TheButton extends StatelessWidget {
   }
 }
 
-    
+/*Container(
+        width: MediaQuery.of(context).size.width,
+       // color: Colors.red,
+        child: Column(
+          mainAxisSize: MainAxisSize.max, //refers to the height
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [ 
+            TheButton(theText: 'Login to Google',),
+            const SizedBox(height:20),
+            TheButton(theText: 'Login to Twitter',),
+          ],
+        ),
+      ),  
+  */
